@@ -19,4 +19,25 @@ spring:
   # shutdown graceful 优雅停止缓冲时间
   lifecycle:
     timeout-per-shutdown-phase: 10s
+  cloud:
+    gateway:
+      enabled: true
+      default-filters:
+        - StripPrefix=1
+        - Retry=3
+      httpclient:
+        connect-timeout: 10000
+        response-timeout: 10000
+        pool:
+          max-connections: 10000
+          acquire-timeout: 10000
+
+#      routes:
+#        - id: oauth5
+#          uri: http://www.google.com
+#          predicates:
+#            - Path=/oauth5/**
+#          filters:
+#            - PrefixPath=/api
+#            - AddRequestParameter=foo, bar
 
