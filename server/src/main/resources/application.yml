@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 9999
   shutdown: graceful
   undertow:
     # 设置IO线程数, 它主要执行非阻塞的任务,它们会负责多个连接, 默认设置每个CPU核心一个线程
@@ -19,25 +19,25 @@ spring:
   # shutdown graceful 优雅停止缓冲时间
   lifecycle:
     timeout-per-shutdown-phase: 10s
-  cloud:
-    gateway:
-      enabled: true
-      default-filters:
-        - StripPrefix=1
-        - Retry=3
-      httpclient:
-        connect-timeout: 10000
-        response-timeout: 10000
-        pool:
-          max-connections: 10000
-          acquire-timeout: 10000
 
+  ## ---------
+#  cloud:
+#    gateway:
+#      enabled: true
+#      default-filters:
+#        - StripPrefix=1
+#        - Retry=3
+#      httpclient:
+#        connect-timeout: 10000
+#        response-timeout: 10000
+#        pool:
+#          max-connections: 10000
+#          acquire-timeout: 10000
+#
 #      routes:
-#        - id: oauth5
-#          uri: http://www.google.com
+#        - id: bfs-demo2
+#          uri: lb://bfs-demo2
 #          predicates:
-#            - Path=/oauth5/**
+#            - Path=/bfs-demo2/demo2/**
 #          filters:
-#            - PrefixPath=/api
-#            - AddRequestParameter=foo, bar
-
+#          #- PrefixPath=/api
