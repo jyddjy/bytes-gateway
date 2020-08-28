@@ -21,23 +21,23 @@ spring:
     timeout-per-shutdown-phase: 10s
 
   ## ---------
-#  cloud:
-#    gateway:
-#      enabled: true
-#      default-filters:
-#        - StripPrefix=1
-#        - Retry=3
-#      httpclient:
-#        connect-timeout: 10000
-#        response-timeout: 10000
-#        pool:
-#          max-connections: 10000
-#          acquire-timeout: 10000
-#
-#      routes:
-#        - id: bfs-demo2
-#          uri: lb://bfs-demo2
-#          predicates:
-#            - Path=/bfs-demo2/demo2/**
-#          filters:
-#          #- PrefixPath=/api
+  cloud:
+    gateway:
+      enabled: true
+      default-filters:
+        - StripPrefix=1
+        - Retry=3
+      httpclient:
+        connect-timeout: 10000
+        response-timeout: 10000
+        pool:
+          max-connections: 10000
+          acquire-timeout: 10000
+
+      routes:
+        - id: bfs-demo2
+          uri: lb://bfs-demo2
+          predicates:
+            - Path=/bfs-demo2/demo2/**
+          filters:
+          #- PrefixPath=/api
